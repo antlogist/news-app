@@ -1,7 +1,35 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: app.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: app.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file
  * @author Anthony Podlesnyy
- * @see <a href="https://podlesnyy.ru/" target="_blank">podlesnyy.ru</a>
+ * @see &lt;a href="https://podlesnyy.ru/" target="_blank">podlesnyy.ru&lt;/a>
  * @description News application allows users an opportunity to search for news. Users can select countries and news categories. 
  * The country and the category are not included in the search if users search for news by the text. 
  * Please, register and get your API key on https://newsapi.org/
@@ -73,7 +101,7 @@ const httpCall = {
      * @inner
      * @memberof httpCall
      */
-    apiKey: "",
+    apiKey: "5d7eda5042ce4d3781d923eaecaaf0ae",
 
     /**
      * @description Api url.
@@ -97,7 +125,7 @@ const httpCall = {
     getTopHeadlines: function (country = "ru", category = "technology") {
         preloader.showPreloader();
         http().get(
-            `${this.apiUrl}/top-headlines?country=${country}&category=${category}&apiKey=${this.apiKey}`,
+            `${this.apiUrl}/top-headlines?country=${country}&amp;category=${category}&amp;apiKey=${this.apiKey}`,
             this.httpCallback
         );
     },
@@ -116,7 +144,7 @@ const httpCall = {
         // Show preloader
         preloader.showPreloader();
         http().get(
-            `${this.apiUrl}/everything?q=${query}&apiKey=${this.apiKey}`,
+            `${this.apiUrl}/everything?q=${query}&amp;apiKey=${this.apiKey}`,
             this.httpCallback
         );
     },
@@ -281,25 +309,25 @@ const render = {
      *  title: "Warriors win back to back to start Okanagan Cup - AM 1150 (iHeartRadio)",
      *  description: "Vipers goaltender Roan Clarke stopped 17 shots.",
      *  url: "https://www.iheartradio.ca/am-1150/news/warriors-win-back-to-back-to-start-okanagan-cup-1.13594433",
-     *  urlToImage: "http://www.iheartradio.ca/image/policy:1.13594453:1601229394/okanagancup.jpg?a=16%3A9&w=1000&$p$a$w=6706b33"
+     *  urlToImage: "http://www.iheartradio.ca/image/policy:1.13594453:1601229394/okanagancup.jpg?a=16%3A9&amp;w=1000&amp;$p$a$w=6706b33"
      * }, 1, 20);
      */
     template: function({ urlToImage, title, url, description }, index, length) {
         const dummyImageUrl = "https://via.placeholder.com/450x337";
-        return `<div class="col s12 m6">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="${urlToImage || dummyImageUrl}">
-                    </div>
-                    <div class="card-content">
-                    <span class="card-title">${title}</span>
-                      <p>${description}</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="${url}">This is a link</a>
-                    </div>
-                  </div>
-                </div>`;
+        return `&lt;div class="col s12 m6">
+                  &lt;div class="card">
+                    &lt;div class="card-image">
+                      &lt;img src="${urlToImage || dummyImageUrl}">
+                    &lt;/div>
+                    &lt;div class="card-content">
+                    &lt;span class="card-title">${title}&lt;/span>
+                      &lt;p>${description}&lt;/p>
+                    &lt;/div>
+                    &lt;div class="card-action">
+                      &lt;a href="${url}">This is a link&lt;/a>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>`;
     },
     /**
      * @function anotherTemplate
@@ -319,27 +347,27 @@ const render = {
      *  title: "Warriors win back to back to start Okanagan Cup - AM 1150 (iHeartRadio)",
      *  description: "Vipers goaltender Roan Clarke stopped 17 shots.",
      *  url: "https://www.iheartradio.ca/am-1150/news/warriors-win-back-to-back-to-start-okanagan-cup-1.13594433",
-     *  urlToImage: "http://www.iheartradio.ca/image/policy:1.13594453:1601229394/okanagancup.jpg?a=16%3A9&w=1000&$p$a$w=6706b33"
+     *  urlToImage: "http://www.iheartradio.ca/image/policy:1.13594453:1601229394/okanagancup.jpg?a=16%3A9&amp;w=1000&amp;$p$a$w=6706b33"
      * }, 1, 20);
      */
     anotherTemplate: function({ urlToImage, title, url, description }, index, length) {
         const dummyImageUrl = "https://via.placeholder.com/450x337";
-        const rowOpen = '<div class="row">';
-        const rowClose = "</div>";
-        return `${!(index % 2) ? rowOpen : ""}<div class="col s12 m6">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="${urlToImage || dummyImageUrl}">
-                    </div>
-                    <div class="card-content">
-                    <span class="card-title">${title}</span>
-                      <p>${description}</p>
-                    </div>
-                    <div class="card-action">
-                      <a href="${url}">This is a link</a>
-                    </div>
-                  </div>
-                </div>${index % 2 || +index === +length - 1 ? rowClose : ""}`;
+        const rowOpen = '&lt;div class="row">';
+        const rowClose = "&lt;/div>";
+        return `${!(index % 2) ? rowOpen : ""}&lt;div class="col s12 m6">
+                  &lt;div class="card">
+                    &lt;div class="card-image">
+                      &lt;img src="${urlToImage || dummyImageUrl}">
+                    &lt;/div>
+                    &lt;div class="card-content">
+                    &lt;span class="card-title">${title}&lt;/span>
+                      &lt;p>${description}&lt;/p>
+                    &lt;/div>
+                    &lt;div class="card-action">
+                      &lt;a href="${url}">This is a link&lt;/a>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>${index % 2 || +index === +length - 1 ? rowClose : ""}`;
     }
 };
 
@@ -365,7 +393,7 @@ const preloader = {
         render.searchButton.disabled = true;
         document.body.insertAdjacentHTML(
             "afterbegin",
-            "<div class='progress'><div class='indeterminate'></div></div>"
+            "&lt;div class='progress'>&lt;div class='indeterminate'>&lt;/div>&lt;/div>"
         );
     },
 
@@ -449,3 +477,26 @@ const events = {
     */
     searchForm.addEventListener("submit", events.onFormSubmit);
 })();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Documentation</a></h2><h3>Namespaces</h3><ul><li><a href="http.html">http</a></li><li><a href="httpCall.html">httpCall</a></li><li><a href="render.html">render</a></li><li><a href="preloader.html">preloader</a></li><li><a href="events.html">events</a></li></ul><h3>Events</h3><ul><li><a href="events.html#~event:DOMContentLoaded">DOMContentLoaded</a></li><li><a href="events.html#~event:searchFormSubmit">searchFormSubmit</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Mon Sep 28 2020 22:03:23 GMT+0300 (Moscow Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

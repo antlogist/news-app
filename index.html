@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Style-->
+    <link rel="stylesheet" href="style.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,10 +18,15 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 m6">
+                    <!--Card-->
                     <div class="card">
+                        <!--Form-->
                         <form name="searchForm" id="searchForm">
+                            <!--Card content-->
                             <div class="card-content">
                               <span class="card-title">Search news</span>
+
+                              <!--Select country-->
                                <div class="row">
                                    <div class="col s12">
                                         <div class="input-field">
@@ -32,30 +39,64 @@
                                         </div>
                                    </div>
                                </div>
-                               <div class="row">
-                                   <div class="col s12">
+                               <!--/Select country-->
+
+                               <!--Select category-->
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="input-field">
+                                            <select name="searchCategory" id="searchCategory">
+                                                <option value="technology">technology</option>
+                                                <option value="business">business</option>
+                                                <option value="entertainment">entertainment</option>
+                                                <option value="general">general</option>
+                                                <option value="health">health</option>
+                                                <option value="science">science</option>
+                                                <option value="sports">sports</option>
+                                            </select>
+                                            <label>Choose Category</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/Select category-->
+
+                                <!--Search text-->
+                                <div class="row">
+                                    <div class="col s12">
                                         <div class="input-field">
                                             <input type="text" id="searchText" class="autocomplete" name="searchText" />
                                             <label for="autocomplete-input">Search</label>
                                         </div>  
                                    </div>
                                </div>
+                               <!--/Search text-->
+
                             </div>
+                            <!--/Card content-->
+
+                            <!--Action-->
                             <div class="card-action">
                                 <button class="btn waves-effect waves-light" type="submit" name="action">
                                     Search
                                     <i class="material-icons right">search</i>
                                 </button>
                             </div>
+                            <!--/Action-->
+
                         </form>
+                        <!--/Form-->
                     </div>
+                    <!--/Card-->
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+
+    <!--News-->
+    <div class="container cards-container">
         <div id="newsContent"></div>
     </div>
+    <!--/News-->
 
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
